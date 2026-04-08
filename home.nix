@@ -6,9 +6,9 @@
 
   home.packages = with pkgs; [
     vivaldi emacs w3m git prismlauncher mpv feh discord yazi playerctl libnotify unzip p7zip
-    chafa libsixel ffmpegthumbnailer thunar python3 wine renpy tor-browser-bundle-bin transmission_4-gtk
+    chafa tmux libsixel ffmpegthumbnailer foot thunar python3 wine renpy tor-browser-bundle-bin transmission_4-gtk
     krita weechat nicotine-plus fastfetch btop npm neovim wl-clipboard
-    jdk8 jdk25 ghc stack cabal-install haskell-language-server wget curl gvfs
+    jdk8 jdk25 ghc ncmpcpp stack cabal-install haskell-language-server wget curl gvfs
     
     # Utilities
     swaybg          # Wallpaper

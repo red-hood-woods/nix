@@ -28,8 +28,24 @@
     pulse.enable = true;
   };
 
-  # Graphics & Portals (Intel Broadwell)
-  hardware.graphics.enable = true;
+ # Graphics & Hardware Acceleration (Intel Broadwell)
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      intel-vaapi-driver
+      libvdpau-va-gl
+      
+      # Vulkan Drivers
+      vulkan-loader
+      vulkan-validation-layers
+      intel-compute-runtime
+    ];
+  };
+  boot.initrd.kernelModules = [ "i915" ];
+  hardware.enableAllFirmware = true; 
+  networking.enableIPv6 = true; # Often helps with modern Intel WiFi stability
+
   systemd.oomd.enable = true;
   xdg.portal = {
     enable = true;
