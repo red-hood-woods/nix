@@ -5,16 +5,15 @@
   home.homeDirectory = "/home/alice";
 
   home.packages = with pkgs; [
-    # Your requested apps
     vivaldi emacs w3m git prismlauncher mpv feh discord yazi playerctl libnotify unzip p7zip
-    chafa libsixel ffmpegthumbnailer thunar python3 wine renpy tor-browser-bundle-bin transmission_4-gtk foot
+    chafa libsixel ffmpegthumbnailer thunar python3 wine renpy tor-browser-bundle-bin transmission_4-gtk
     krita weechat nicotine-plus fastfetch btop npm neovim wl-clipboard
     jdk8 jdk25 ghc stack cabal-install haskell-language-server wget curl gvfs
     
-    # Utilities from your Sway config
+    # Utilities
     swaybg          # Wallpaper
     mako            # Notifications
-    rofi-wayland    # App launcher (replaces rofi for Wayland)
+    rofi-wayland    # App launcher
     grim slurp      # Screenshots
     swaylock        # Lockscreen
     brightnessctl   # Brightness keys
@@ -30,7 +29,6 @@
     config = rec {
       modifier = "Mod4";
 
-      # Use the last font defined in your old file
       fonts = {
         names = [ "Courier Prime" ];
         size = 11.0;
@@ -89,7 +87,7 @@
         background = "#121212";
       };
 
-      # Keybindings (Merged with defaults to keep standard sway binds)
+      # Keybindings
       keybindings = let
         alt = "Mod1";
       in lib.mkOptionDefault {
@@ -156,7 +154,19 @@
       };
     };
   };
-
+  programs.foot = {
+  enable = true;
+  settings = {
+    main = {
+      font = "Courier Prime:size=11";
+      pad = "15x15";
+    };
+    colors = {
+      alpha = 0.8;
+      background = "121212";
+    };
+  };
+};
   # Cursor theme setup
   home.pointerCursor = {
     name = "capitaine-cursors";

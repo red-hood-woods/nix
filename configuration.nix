@@ -9,17 +9,17 @@
 
   zramSwap = {
     enable = true;
-    algorithm = "zstd"; # High compression ratio, very fast
-    memoryPercent = 50;  # Use up to 50% of your RAM for the compressed area
+    algorithm = "zstd";
+    memoryPercent = 50;
   };
 
   swapDevices = [{
     device = "/var/lib/swapfile";
     size = 8192; # 8GB
-    priority = 0; # Lower than zRAM's default of 5, so disk is used last
+    priority = 0;
   }];
 
-  # Audio (Replaces the need for 'exec pipewire' in your config)
+  # Audio
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -43,8 +43,9 @@
     poppins
     courier-prime
     font-awesome # Good fallback
-    nerd-fonts.symbols-only # Great if you just want icons
-    nerd-fonts.fira-code    # Example: FiraCode with icons built-in
+    nerd-fonts.symbols-only
+    nerd-fonts.fira-code
+
     nerd-fonts.jetbrains-mono
   ];
 
@@ -68,5 +69,5 @@
     extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
   };
 
-  system.stateVersion = "25.11"; # Updated!
+  system.stateVersion = "25.11";
 }
