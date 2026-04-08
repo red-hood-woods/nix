@@ -7,7 +7,7 @@
   home.packages = with pkgs; [
     # Your requested apps
     vivaldi emacs w3m git prismlauncher mpv feh discord yazi playerctl libnotify unzip p7zip
-    thunar python3 wine renpy tor-browser-bundle-bin transmission_4-gtk foot
+    chafa libsixel ffmpegthumbnailer thunar python3 wine renpy tor-browser-bundle-bin transmission_4-gtk foot
     krita weechat nicotine-plus fastfetch btop npm neovim wl-clipboard
     jdk8 jdk25 ghc stack cabal-install haskell-language-server wget curl gvfs
     
