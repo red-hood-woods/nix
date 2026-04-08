@@ -15,7 +15,7 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.wonderland = nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
         ./hardware-configuration.nix # KEEP YOUR ORIGINAL FILE!
