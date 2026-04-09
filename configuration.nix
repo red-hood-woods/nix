@@ -5,6 +5,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   networking.hostName = "wonderland";
+  networking.extraHosts = "127.0.0.1 wonderland";
   networking.networkmanager.enable = true;
 
   zramSwap = {

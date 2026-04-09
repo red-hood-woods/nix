@@ -7,8 +7,8 @@
   home.packages = with pkgs; [
     vivaldi emacs w3m git prismlauncher mpv feh discord yazi playerctl libnotify unzip p7zip
     chafa tmux libsixel ffmpegthumbnailer foot xfce.thunar python3 wine renpy tor-browser transmission_4-gtk
-    krita weechat nicotine-plus fastfetch btop neovim wl-clipboard
-    jdk25 ghc ncmpcpp stack cabal-install haskell-language-server wget curl gvfs
+    krita weechat nicotine-plus fastfetch btop neovim wl-clipboard xfce.mousepad
+    jdk25 ghc ncmpcpp stack cabal-install haskell-language-server wget curl gvfs hyfetch
 
     # Utilities
     swaybg          # Wallpaper
@@ -30,8 +30,8 @@
     # Native Home Manager Sway Configuration
     config = rec {
       modifier = "Mod4";
-      set $term foot 
-      window.titlebar = false;
+      terminal = "foot";
+      bars = [];
       fonts = {
         names = [ "Courier Prime" ];
         size = 11.0;
@@ -49,16 +49,20 @@
           map_to_output = "eDP-1";
         };
       };
-
+      output = {
+      "*" = {
+        bg = "/home/alice/.bg.jpg fill";
+      };
+    };
       # Autostart applications
       startup = [
-        { command = "swaybg -m fill -i /home/alice/bg.jpg"; always = false; }
         { command = "mako"; always = false; }
       ];
 
       # Border styling and Window Rules
       window = {
         border = 3;
+	titlebar = false;
         commands = [
           { command = "floating enable, focus"; criteria = { app_id = "(?i)eog|sxiv|feh|mpv|vlc|file-roller|xarchiver"; }; }
           { command = "floating enable, focus"; criteria = { class = "(?i)eog|sxiv|feh|mpv|vlc|file-roller|xarchiver"; }; }
@@ -163,7 +167,6 @@
     settings = {
       main = {
         font = "Courier Prime:size=11";
-        pad = "15x15";
       };
       colors = {
         alpha = 0.8;
@@ -171,7 +174,64 @@
       };
     };
   };
-
+   programs.fastfetch = {
+    enable = true;
+    settings = {
+      logo = {
+        source = "nixos_small";
+        padding = {
+          right = 1;
+        };
+      };
+      display = {
+        separator = ""; # We use custom keys for the tree, so we clear the default separator
+      };
+      modules = [
+        {
+          type = "title";
+          keyWidth = 10;
+        }
+        "break"
+        {
+          type = "os";
+          key = "╭─󰣇 OS"; # The top of the tree
+          keyColor = "34"; 
+        }
+        {
+          type = "kernel";
+          key = "├─󰒋 Ker";
+          keyColor = "34";
+        }
+        {
+          type = "packages";
+          key = "├─󰏖 Pkg";
+          keyColor = "34";
+        }
+        {
+          type = "wm";
+          key = "├─󱂬 WM ";
+          keyColor = "34";
+        }
+        {
+          type = "shell";
+          key = "├─󱆃 Sh ";
+          keyColor = "34";
+        }
+        {
+          type = "terminal";
+          key = "├─󰆍 Trm";
+          keyColor = "34";
+        }
+        {
+          type = "uptime";
+          key = "╰─󰅐 Up "; # The bottom of the tree
+          keyColor = "34";
+        }
+        "break"
+        "colors"
+      ];
+    };
+  };
   # Cursor theme setup
   home.pointerCursor = {
     name = "capitaine-cursors";
@@ -184,6 +244,7 @@
     enable = true;
     musicDirectory = "/home/alice/Music";
   };
+  
   home.stateVersion = "25.11";
   programs.home-manager.enable = true;
 }
