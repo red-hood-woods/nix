@@ -18,7 +18,9 @@
     size = 8192; # 8GB
     priority = 0;
   }];
-
+  boot.kernel.sysctl = {
+    "vm.swappiness" = 10;
+  };
   # Audio
   security.rtkit.enable = true;
   services.pipewire = {
@@ -55,7 +57,6 @@
 
   # Fonts (Added fonts from your Sway config)
   fonts.packages = with pkgs; [
-    ionicons
     poppins
     courier-prime
     font-awesome # Good fallback
@@ -79,10 +80,12 @@
 
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
+  nixpkgs.config.permittedInsecurePackages = [
+    "python3.12-ecdsa-0.19.1"
+  ];
   users.users.alice = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" "input" ];
   };
 
   system.stateVersion = "25.11";
