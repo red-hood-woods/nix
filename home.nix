@@ -8,7 +8,7 @@
     vivaldi emacs w3m git prismlauncher mpv feh discord yazi playerctl libnotify unzip p7zip
     chafa tmux libsixel ffmpegthumbnailer foot xfce.thunar python3 wine renpy tor-browser transmission_4-gtk
     krita weechat nicotine-plus fastfetch btop neovim wl-clipboard
-    jdk8 jdk25 ghc ncmpcpp stack cabal-install haskell-language-server wget curl gvfs
+    jdk25 ghc ncmpcpp stack cabal-install haskell-language-server wget curl gvfs
 
     # Utilities
     swaybg          # Wallpaper
@@ -19,16 +19,19 @@
     brightnessctl   # Brightness keys
     pulseaudio      # For 'pactl' volume commands
     capitaine-cursors
+    micro
   ];
 
   wayland.windowManager.sway = {
     enable = true;
+    checkConfig = false;
     package = pkgs.swayfx;
 
     # Native Home Manager Sway Configuration
     config = rec {
       modifier = "Mod4";
-
+      set $term foot 
+      window.titlebar = false;
       fonts = {
         names = [ "Courier Prime" ];
         size = 11.0;
@@ -49,7 +52,7 @@
 
       # Autostart applications
       startup = [
-        { command = "swaybg -m fill -i ~/wp5716349.jpg"; always = false; }
+        { command = "swaybg -m fill -i /home/alice/bg.jpg"; always = false; }
         { command = "mako"; always = false; }
       ];
 
