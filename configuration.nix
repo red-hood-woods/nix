@@ -47,7 +47,7 @@
   };
   boot.initrd.kernelModules = [ "i915" ];
   hardware.enableAllFirmware = true; 
-  networking.enableIPv6 = true; # Often helps with modern Intel WiFi stability
+  networking.enableIPv6 = true;
 
   systemd.oomd.enable = true;
   xdg.portal = {
@@ -56,14 +56,15 @@
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
-  # Fonts (Added fonts from your Sway config)
+  # Fonts
   fonts.packages = with pkgs; [
     poppins
     courier-prime
     font-awesome # Good fallback
     nerd-fonts.symbols-only
-    nerd-fonts.fira-code
-
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
+    noto-fonts
     nerd-fonts.jetbrains-mono
   ];
 
@@ -78,7 +79,7 @@
   services.flatpak.enable = true;
   services.gvfs.enable = true;
   services.udisks2.enable = true;
-
+  
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.permittedInsecurePackages = [

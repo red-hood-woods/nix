@@ -1,14 +1,14 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs,  ... }:
 
 {
   home.username = "alice";
   home.homeDirectory = "/home/alice";
 
   home.packages = with pkgs; [
-    vivaldi emacs w3m git prismlauncher mpv feh discord yazi playerctl libnotify unzip p7zip
+    vivaldi emacs w3m git mpv prismlauncher feh discord yazi playerctl libnotify unzip p7zip
     chafa tmux libsixel ffmpegthumbnailer foot xfce.thunar python3 wine renpy tor-browser transmission_4-gtk
-    krita weechat nicotine-plus fastfetch btop neovim wl-clipboard xfce.mousepad
-    jdk25 ghc ncmpcpp stack cabal-install haskell-language-server wget curl gvfs hyfetch
+    krita gimp nodejs weechat nicotine-plus fastfetch btop wl-clipboard xfce.mousepad
+    jdk25 ghc ncmpcpp stack cava cabal-install haskell-language-server wget curl gvfs hyfetch
 
     # Utilities
     swaybg          # Wallpaper
@@ -18,8 +18,11 @@
     swaylock        # Lockscreen
     brightnessctl   # Brightness keys
     pulseaudio      # For 'pactl' volume commands
-    capitaine-cursors
-    micro
+    capitaine-cursors # Curosor
+    micro # Text Editor Backup
+
+    # Oddtites
+    inputs.avim.packages.${pkgs.system}.default # Nvim
   ];
 
   wayland.windowManager.sway = {
@@ -41,6 +44,9 @@
       output = {
         "HDMI-A-1" = { pos = "0 0"; };
         "eDP-1" = { pos = "1680 0"; };
+        "*" = {
+          bg = "/home/alice/.bg.jpg fill";
+        };
       };
 
       # Touchscreen Input
@@ -49,11 +55,6 @@
           map_to_output = "eDP-1";
         };
       };
-      output = {
-      "*" = {
-        bg = "/home/alice/.bg.jpg fill";
-      };
-    };
       # Autostart applications
       startup = [
         { command = "mako"; always = false; }
@@ -161,7 +162,7 @@
       };
     };
   };
-
+  # Foot :p
   programs.foot = {
     enable = true;
     settings = {
@@ -174,7 +175,8 @@
       };
     };
   };
-   programs.fastfetch = {
+  # Fastfetch/Hyfetch
+  programs.fastfetch = {
     enable = true;
     settings = {
       logo = {
@@ -184,7 +186,7 @@
         };
       };
       display = {
-        separator = ""; # We use custom keys for the tree, so we clear the default separator
+        separator = "";
       };
       modules = [
         {
@@ -194,12 +196,12 @@
         "break"
         {
           type = "os";
-          key = "╭─󰣇 OS"; # The top of the tree
+          key = "╭─󱄅 OS ";
           keyColor = "34"; 
         }
         {
           type = "kernel";
-          key = "├─󰒋 Ker";
+          key = "├─󰒋 Kernel ";
           keyColor = "34";
         }
         {
@@ -219,12 +221,12 @@
         }
         {
           type = "terminal";
-          key = "├─󰆍 Trm";
+          key = "├─󰆍 Term";
           keyColor = "34";
         }
         {
           type = "uptime";
-          key = "╰─󰅐 Up "; # The bottom of the tree
+          key = "╰─󰅐 Up ";
           keyColor = "34";
         }
         "break"
@@ -239,7 +241,7 @@
     size = 24;
     gtk.enable = true;
   };
-
+  # MPD
   services.mpd = {
     enable = true;
     musicDirectory = "/home/alice/Music";
