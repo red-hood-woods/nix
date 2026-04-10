@@ -2,7 +2,7 @@
   description = "Alice's Nixtop";
 
   inputs = {
-  	# Stable
+    # Stable
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     #AliceVim
     avim = {

@@ -197,7 +197,7 @@
         {
           type = "os";
           key = "╭─󱄅 OS ";
-          keyColor = "34"; 
+          keyColor = "34";
         }
         {
           type = "kernel";
@@ -221,7 +221,7 @@
         }
         {
           type = "terminal";
-          key = "├─󰆍 Term";
+          key = "├─󰆍 Term ";
           keyColor = "34";
         }
         {
@@ -246,7 +246,7 @@
     enable = true;
     musicDirectory = "/home/alice/Music";
   };
-  
+
   home.stateVersion = "25.11";
   programs.home-manager.enable = true;
 }
