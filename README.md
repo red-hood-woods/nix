@@ -12,7 +12,7 @@ The configuration is NOT organized, I SUCK at this:
 
 ---
 
-### 🚀 Getting Started
+### Getting Started
 
 > [!WARNING]
 > Do not run these configurations blindly. Review the code to ensure it matches your hardware and preferences.
@@ -36,12 +36,12 @@ home-manager switch --flake .#alice@wonderland
 
 ---
 
-### ⚙️ Features
+### Features
 
 * Greastesxt config of all time hahahahahh!
 ---
 
-### 🛠️ Key Tools
+### Key Tools
 
 | Component | Description |
 | :--- | :--- |
@@ -52,6 +52,6 @@ home-manager switch --flake .#alice@wonderland
 
 ---
 
-### 📜 License
+### License
 
 This project is licensed under the [*shrug*]. See the `LICENSE` file for details.
