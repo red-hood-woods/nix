@@ -5,9 +5,9 @@
   home.homeDirectory = "/home/alice";
 
   home.packages = with pkgs; [
-    vivaldi emacs w3m git mpv prismlauncher feh discord yazi playerctl libnotify unzip p7zip
-    chafa tmux libsixel ffmpegthumbnailer foot xfce.thunar python3 wine renpy tor-browser transmission_4-gtk
-    krita gimp nodejs weechat nicotine-plus fastfetch btop wl-clipboard xfce.mousepad
+    vivaldi emacs w3m mpv prismlauncher feh discord yazi playerctl libnotify unzip p7zip
+    chafa tmux libsixel ripgrep vscodium ffmpegthumbnailer foot xfce.thunar python3 wine renpy tor-browser transmission_4-gtk
+    krita gimp git nodejs weechat nicotine-plus fastfetch ffmpeg obs-studio btop wl-clipboard xfce.mousepad
     jdk25 ghc ncmpcpp stack cava cabal-install haskell-language-server wget curl gvfs hyfetch
 
     # Utilities
@@ -19,7 +19,6 @@
     brightnessctl   # Brightness keys
     pulseaudio      # For 'pactl' volume commands
     capitaine-cursors # Curosor
-    micro # Text Editor Backup
 
     # Oddtites
     inputs.avim.packages.${pkgs.system}.default # Nvim

@@ -7,6 +7,7 @@
     #AliceVim
     avim = {
           url = "git+https://codeberg.org/sheep/avim";
+          inputs.nixpkgs.follows = "nixpkgs";
     };
     # Home Manger
     home-manager = {
