@@ -11,13 +11,14 @@ This repository contains my personal NixOS and Home Manager configurations, mana
 The configuration is NOT organized, I SUCK at this:
 
 - **`hosts/`**: Machine-specific configurations.
-	
-     - `wonderland`:My primary laptop setup.
-     
+     - `common`: on the tin lmfao
+     - `rabbit`: a test of old settings
+     - `wonderland`: My primary laptop setup.
+
 - **`modules/`**: The reusable bits.
-    
+
     - `nixos`: System-level modules (like Flatpak support).
-        
+
     - `home`: Home-manager modules (Sway, Foot, NixVim).
 
 - **`users/`**: User-specific Home-Manager profiles (e.g., `alice`).
@@ -67,4 +68,4 @@ home-manager switch --flake .#alice@wonderland
 
 ### License
 
-This project is licensed under the [*shrug*]. See the `LICENSE` file for details.
+This project is licensed under the [*shrug*]. See the `LICENSE` file for details. ABSOLUTLY NO WARNETY!`
