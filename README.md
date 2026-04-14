@@ -1,6 +1,8 @@
 ## Nix Config: [ALICE]
 
-This repository contains my personal NixOS and Home Manager configurations, managed via **Nix Flakes**. It’s designed to be a reproducible, declarative environment that works across different machines.
+This repository contains my personal NixOS and Home Manager configurations, managed via **Nix Flakes**. It’s designed to be a reproducible, declarative environment that works across different machines. Currently built for my laptop.
+
+#### 25.11 Current
 
 ---
 
@@ -8,7 +10,17 @@ This repository contains my personal NixOS and Home Manager configurations, mana
 
 The configuration is NOT organized, I SUCK at this:
 
-* `flake.nix`: The main entry point for the entire configuration.
+- **`hosts/`**: Machine-specific configurations.
+	
+     - `wonderland`:My primary laptop setup.
+     
+- **`modules/`**: The reusable bits.
+    
+    - `nixos`: System-level modules (like Flatpak support).
+        
+    - `home`: Home-manager modules (Sway, Foot, NixVim).
+        ---
+- **`users/`**: User-specific Home-Manager profiles (e.g., `alice`).
 
 ---
 
@@ -38,17 +50,18 @@ home-manager switch --flake .#alice@wonderland
 
 ### Features
 
-* Greastesxt config of all time hahahahahh!
+* Greatest config of all time hahahahahh!
 ---
 
 ### Key Tools
 
-| Component | Description |
-| :--- | :--- |
-| **Bootloader** | [systemd-boot] |
-| **Shell** | [Bash] |
-| **WM/DE** | [Sway] |
-| **Editor** | [Neovim/Emacs/VSCodium] |
+| Component      | Description               |
+| :------------- | :------------------------ |
+| **Bootloader** | [[systemd-boot]]          |
+| **Shell**      | [[Bash]]                  |
+| **WM/DE**      | [[Sway]]                  |
+| **Editor**     | [[Neovim/Emacs/VSCodium]] |
+| **Fetch**      | [[Hyfetch/Fastfetch]]     |
 
 ---
 
