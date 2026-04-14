@@ -25,13 +25,14 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
     unstable-pkgs = nixpkgs-unstable.legacyPackages.${system};
-  in {
-    nixosConfigurations.wonderland = nixpkgs.lib.nixosSystem {
+    mkHost = hostname: nixpkgs.lib.nixosSystem {
       inherit system;
-      specialArgs = { inherit inputs unstable-pkgs; };
+      specialArgs = { 
+      inherit inputs unstable-pkgs;
+      };
       modules = [
-        ./hosts/wonderland/hardware-configuration.nix # KEEP YOUR ORIGINAL FILE!
-        ./hosts/wonderland/configuration.nix
+        ./hosts/${hostname}/hardware-configuration.nix
+        ./hosts/${hostname}/configuration.nix
         inputs.nix-flatpak.nixosModules.nix-flatpak
         home-manager.nixosModules.home-manager
         {
@@ -42,5 +43,11 @@
         }
       ];
     };
+  in {
+    nixosConfigurations = {
+      wonderland = mkHost "wonderland";
+      rabbit = mkHost "rabbit";
+    };
+
   };
 }
