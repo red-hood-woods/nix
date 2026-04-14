@@ -1,29 +1,6 @@
-{ config, pkgs, lib, inputs,  unstable-pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
-  home.username = "alice";
-  home.homeDirectory = "/home/alice";
-
-  home.packages = with pkgs; [
-    vivaldi emacs w3m mpv prismlauncher feh discord yazi playerctl libnotify unzip p7zip
-    chafa tmux unstable-pkgs.ani-cli libsixel ripgrep vscodium ffmpegthumbnailer foot xfce.thunar python3 wine renpy tor-browser transmission_4-gtk
-    krita gimp git nodejs weechat nicotine-plus fastfetch ffmpeg obs-studio btop wl-clipboard xfce.mousepad
-    jdk25 ghc ncmpcpp stack cava cabal-install haskell-language-server wget curl gvfs hyfetch
-
-    # Utilities
-    swaybg          # Wallpaper
-    mako            # Notifications
-    rofi            # App launcher
-    grim slurp      # Screenshots
-    swaylock        # Lockscreen
-    brightnessctl   # Brightness keys
-    pulseaudio      # For 'pactl' volume commands
-    capitaine-cursors # Curosor
-
-    # Oddtites
-    inputs.avim.packages.${pkgs.system}.default # Nvim
-  ];
-
   wayland.windowManager.sway = {
     enable = true;
     checkConfig = false;
@@ -157,95 +134,8 @@
           Right = "resize grow width 5 px or 5 ppt";
           Return = "mode default";
           Escape = "mode default";
-        };
+	};
       };
     };
   };
-  # Foot :p
-  programs.foot = {
-    enable = true;
-    settings = {
-      main = {
-        font = "Courier Prime:size=11";
-      };
-      colors = {
-        alpha = 0.8;
-        background = "121212";
-      };
-    };
-  };
-  # Fastfetch/Hyfetch
-  programs.fastfetch = {
-    enable = true;
-    settings = {
-      logo = {
-        source = "nixos_small";
-        padding = {
-          right = 1;
-        };
-      };
-      display = {
-        separator = "";
-      };
-      modules = [
-        {
-          type = "title";
-          keyWidth = 10;
-        }
-        "break"
-        {
-          type = "os";
-          key = "╭─󱄅 OS ";
-          keyColor = "34";
-        }
-        {
-          type = "kernel";
-          key = "├─󰒋 Kernel ";
-          keyColor = "34";
-        }
-        {
-          type = "packages";
-          key = "├─󰏖 Pkg";
-          keyColor = "34";
-        }
-        {
-          type = "wm";
-          key = "├─󱂬 WM ";
-          keyColor = "34";
-        }
-        {
-          type = "shell";
-          key = "├─󱆃 Sh ";
-          keyColor = "34";
-        }
-        {
-          type = "terminal";
-          key = "├─󰆍 Term ";
-          keyColor = "34";
-        }
-        {
-          type = "uptime";
-          key = "╰─󰅐 Up ";
-          keyColor = "34";
-        }
-        "break"
-        "colors"
-      ];
-    };
-  };
-  # Cursor theme setup
-  home.pointerCursor = {
-    name = "capitaine-cursors";
-    package = pkgs.capitaine-cursors;
-    size = 24;
-    gtk.enable = true;
-  };
-  # MPD
-  services.mpd = {
-    enable = true;
-    musicDirectory = "/home/alice/Music";
-  };
-
-  home.stateVersion = "25.11";
-  programs.home-manager.enable = true;
 }

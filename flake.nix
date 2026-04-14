@@ -30,14 +30,14 @@
       inherit system;
       specialArgs = { inherit inputs unstable-pkgs; };
       modules = [
-        ./hardware-configuration.nix # KEEP YOUR ORIGINAL FILE!
-        ./configuration.nix
+        ./hosts/wonderland/hardware-configuration.nix # KEEP YOUR ORIGINAL FILE!
+        ./hosts/wonderland/configuration.nix
         inputs.nix-flatpak.nixosModules.nix-flatpak
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.alice = import ./home.nix;
+          home-manager.users.alice = import ./users/alice/home.nix;
           home-manager.extraSpecialArgs = { inherit inputs unstable-pkgs; };
         }
       ];
