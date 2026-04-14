@@ -19,7 +19,7 @@ The configuration is NOT organized, I SUCK at this:
     - `nixos`: System-level modules (like Flatpak support).
         
     - `home`: Home-manager modules (Sway, Foot, NixVim).
-        ---
+
 - **`users/`**: User-specific Home-Manager profiles (e.g., `alice`).
 
 ---
