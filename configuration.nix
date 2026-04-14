@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   # Bootloader & Networking
@@ -38,7 +38,7 @@
       intel-media-driver
       intel-vaapi-driver
       libvdpau-va-gl
-      
+
       # Vulkan Drivers
       vulkan-loader
       vulkan-validation-layers
@@ -46,7 +46,7 @@
     ];
   };
   boot.initrd.kernelModules = [ "i915" ];
-  hardware.enableAllFirmware = true; 
+  hardware.enableAllFirmware = true;
   networking.enableIPv6 = true;
 
   systemd.oomd.enable = true;
@@ -76,10 +76,23 @@
 
   # Steam & Flatpak
   programs.steam.enable = true;
-  services.flatpak.enable = true;
   services.gvfs.enable = true;
   services.udisks2.enable = true;
-  
+
+  services.flatpak = {
+    enable = true;
+    # Automatically add the Flathub remote if it's missing
+    remotes = lib.mkOptionDefault [{
+      name = "flathub";
+      location = "https://dl.flathub.org/repo/flathub.flatpakrepo";
+    }];
+    # Declarative packages
+    packages = [
+      "app.twintaillauncher.ttl"
+
+    ];
+  };
+
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.permittedInsecurePackages = [

@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs,  ... }:
+{ config, pkgs, lib, inputs,  unstable-pkgs, ... }:
 
 {
   home.username = "alice";
@@ -6,7 +6,7 @@
 
   home.packages = with pkgs; [
     vivaldi emacs w3m mpv prismlauncher feh discord yazi playerctl libnotify unzip p7zip
-    chafa tmux libsixel ripgrep vscodium ffmpegthumbnailer foot xfce.thunar python3 wine renpy tor-browser transmission_4-gtk
+    chafa tmux unstable-pkgs.ani-cli libsixel ripgrep vscodium ffmpegthumbnailer foot xfce.thunar python3 wine renpy tor-browser transmission_4-gtk
     krita gimp git nodejs weechat nicotine-plus fastfetch ffmpeg obs-studio btop wl-clipboard xfce.mousepad
     jdk25 ghc ncmpcpp stack cava cabal-install haskell-language-server wget curl gvfs hyfetch
 
