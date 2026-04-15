@@ -30,6 +30,9 @@ The configuration is NOT organized, I SUCK at this:
 > [!WARNING]
 > Do not run these configurations blindly. Review the code to ensure it matches your hardware and preferences.
 
+> [PLEASE READ]
+> Look my emacs is in very early points please dont use it simply use vscoduim or nvim
+
 #### 1. Requirements
 * Nix installed with `flakes` and `nix-command` experimental features enabled.
 * Git.
