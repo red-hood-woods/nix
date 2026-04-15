@@ -13,6 +13,13 @@
           url = "git+https://codeberg.org/sheep/avim";
           inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Emacs
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
+    emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
+    spacemacs-repo = {
+      url = "github:syl20bnr/spacemacs/develop";
+      flake = false;
+    };
     # Home Manger
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
@@ -23,6 +30,9 @@
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, avim, ... } @ inputs:
   let
     system = "x86_64-linux";
+    overlays = [
+    inputs.emacs-overlay.overlays.default 
+    ];
     pkgs = nixpkgs.legacyPackages.${system};
     unstable-pkgs = nixpkgs-unstable.legacyPackages.${system};
     mkHost = hostname: nixpkgs.lib.nixosSystem {
@@ -33,6 +43,7 @@
       modules = [
         ./hosts/${hostname}/hardware-configuration.nix
         ./hosts/${hostname}/configuration.nix
+        { nixpkgs.overlays = overlays; }
         inputs.nix-flatpak.nixosModules.nix-flatpak
         home-manager.nixosModules.home-manager
         {

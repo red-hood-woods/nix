@@ -15,7 +15,6 @@
         names = [ "Courier Prime" ];
         size = 11.0;
       };
-
       # Output displays
       output = {
         "HDMI-A-1" = { pos = "0 0"; };
@@ -136,6 +135,11 @@
           Escape = "mode default";
 	};
       };
-    };
+     };
+     extraConfig = ''
+       blur enable
+       blur_passes 2
+       blur_radius 3
+   '' ;
   };
 }

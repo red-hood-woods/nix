@@ -52,6 +52,7 @@
     noto-fonts-cjk-serif
     noto-fonts
     nerd-fonts.jetbrains-mono
+    source-code-pro
   ];
 
   # Desktop / Wayland stuff
@@ -83,19 +84,6 @@
       "app.twintaillauncher.ttl"
     ];
   };
-
-  # nix-ld, nix settings, unfree, etc.
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    stdenv.cc.cc
-    zlib
-    fuse3
-    icu
-    nss
-    openssl
-    curl
-    expat
-  ];
 
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
