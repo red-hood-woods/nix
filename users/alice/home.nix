@@ -12,22 +12,59 @@
   home.homeDirectory = "/home/alice";
 
   home.packages = with pkgs; [
-    vivaldi w3m mpv prismlauncher feh discord yazi playerctl libnotify unzip p7zip
-    chafa tmux unstable-pkgs.ani-cli cinny-desktop libsixel ripgrep vscodium ffmpegthumbnailer foot xfce.thunar python3 wine renpy tor-browser transmission_4-gtk
-    krita gimp git nodejs weechat nicotine-plus fastfetch ffmpeg obs-studio btop wl-clipboard xfce.mousepad
-    jdk25 ghc ncmpcpp stack obsidian cava cabal-install haskell-language-server wget curl gvfs hyfetch
+    # Misc
+    vivaldi w3m tor-browser # Browsers
+    xfce.mousepad xfce.thunar # Xfce Carryover
+    foot kitty # Terminal Emulator's
+    fastfetch hyfetch # Fetch
+    yazi tmux chafa libsixel ripgrep btop # Terminal things
+    transmission_4-gtk nicotine-plus # Legal things
+    vscodium stack obsidian # Idk i don rembere
+    krita gimp # Photo editing
+    cinny-desktop gomuks weechat # Non Discord chat
+
+    # Pgm
+    jdk25
+    ghc
+    cabal-install 
+    haskell-language-server 
+    python3
+    nodejs
+    
+    # Media
+    mpv
+    ncmpcpp
+    cava
+    ffmpeg
+    ffmpegthumbnailer
+    feh
+
+    # Gaming/Emu
+    bottles
+    wine
+    renpy
+    discord
+    obs-studio
+    prismlauncher
 
     # Utilities
     swaybg          # Wallpaper
-    mako            # Notifications
+    libnotify mako  # Notifications
     rofi            # App launcher
     grim slurp      # Screenshots
     swaylock        # Lockscreen
     brightnessctl   # Brightness keys
+    wl-clipboard    # Clipboard
+    playerctl gvfs
     pulseaudio      # For 'pactl' volume commands
     capitaine-cursors # Curosor
-    bottles
-    unstable-pkgs.antigravity unstable-pkgs.codex #AI Tools
+    git # Its git
+    unzip p7zip     # The zippers
+    wget curl # -.-
+
+    # Unstable
+    unstable-pkgs.ani-cli
+    unstable-pkgs.antigravity #AI Tool
   ];
 
   # Cursor theme setup
