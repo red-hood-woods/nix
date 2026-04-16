@@ -13,7 +13,7 @@
 
   home.packages = with pkgs; [
     # Misc
-    vivaldi w3m tor-browser # Browsers
+    vivaldi pkgs.palemoon-bin w3m tor-browser # Browsers
     xfce.mousepad xfce.thunar # Xfce Carryover
     foot # Terminal Emulator's
     fastfetch hyfetch # Fetch
@@ -26,11 +26,11 @@
     # Pgm
     jdk25
     ghc
-    cabal-install 
-    haskell-language-server 
+    cabal-install
+    haskell-language-server
     python3
     nodejs
-    
+
     # Media
     mpv
     ncmpcpp
