@@ -27,17 +27,15 @@
     },
     "emacs-overlay": {
       "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
+        "nixpkgs": "nixpkgs_2",
         "nixpkgs-stable": "nixpkgs-stable_2"
       },
       "locked": {
-        "lastModified": 1776223037,
-        "narHash": "sha256-Tg8O6i6hx3M/147giatad3JECKD+WFDoDGGCQACz4u8=",
+        "lastModified": 1776331221,
+        "narHash": "sha256-I9HJO6ceghosCSraLRdAzz7f8pm+1zBo7sRVSvJbqUU=",
         "owner": "nix-community",
         "repo": "emacs-overlay",
-        "rev": "8bff507b5c426fce89f23a4ff02e929efdae1e40",
+        "rev": "23055e4c66f6b873d6d6299bf5a7fdfe6012be5c",
         "type": "github"
       },
       "original": {
@@ -139,6 +137,27 @@
         "type": "github"
       }
     },
+    "nixmacs": {
+      "inputs": {
+        "emacs-overlay": "emacs-overlay",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1776343214,
+        "narHash": "sha256-GeN/8bHzl9PQU8QUhNleUzzSlncDVqsFNcGQnqijswo=",
+        "ref": "refs/heads/main",
+        "rev": "6252391cba2b3f5025ba8bf17a699f4036a31c8a",
+        "revCount": 3,
+        "type": "git",
+        "url": "https://codeberg.org/sheep/nixmacs"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://codeberg.org/sheep/nixmacs"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1774701658,
@@ -204,11 +223,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1775710090,
-        "narHash": "sha256-ar3rofg+awPB8QXDaFJhJ2jJhu+KqN/PRCXeyuXR76E=",
+        "lastModified": 1776169885,
+        "narHash": "sha256-l/iNYDZ4bGOAFQY2q8y5OAfBBtrDAaPuRQqWaFHVRXM=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "4c1018dae018162ec878d42fec712642d214fdfa",
+        "rev": "4bd9165a9165d7b5e33ae57f3eecbcb28fb231c9",
         "type": "github"
       },
       "original": {
@@ -219,6 +238,22 @@
       }
     },
     "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1776169885,
+        "narHash": "sha256-l/iNYDZ4bGOAFQY2q8y5OAfBBtrDAaPuRQqWaFHVRXM=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "4bd9165a9165d7b5e33ae57f3eecbcb28fb231c9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1776067740,
         "narHash": "sha256-B35lpsqnSZwn1Lmz06BpwF7atPgFmUgw1l8KAV3zpVQ=",
@@ -257,29 +292,11 @@
     "root": {
       "inputs": {
         "avim": "avim",
-        "emacs-overlay": "emacs-overlay",
         "home-manager": "home-manager",
         "nix-flatpak": "nix-flatpak",
-        "nixpkgs": "nixpkgs_2",
-        "nixpkgs-unstable": "nixpkgs-unstable",
-        "spacemacs-repo": "spacemacs-repo"
-      }
-    },
-    "spacemacs-repo": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1776038064,
-        "narHash": "sha256-jcKBl8ivVu48DNvmgaD4Hm6c99ecCsJUccoOFKTfNQI=",
-        "owner": "syl20bnr",
-        "repo": "spacemacs",
-        "rev": "afceaf805ded1516abcf7e4ba1e3133c6d376304",
-        "type": "github"
-      },
-      "original": {
-        "owner": "syl20bnr",
-        "ref": "develop",
-        "repo": "spacemacs",
-        "type": "github"
+        "nixmacs": "nixmacs",
+        "nixpkgs": "nixpkgs_3",
+        "nixpkgs-unstable": "nixpkgs-unstable"
       }
     },
     "systems": {

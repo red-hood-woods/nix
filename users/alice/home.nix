@@ -13,7 +13,7 @@
 
   home.packages = with pkgs; [
     vivaldi w3m mpv prismlauncher feh discord yazi playerctl libnotify unzip p7zip
-    chafa tmux unstable-pkgs.ani-cli libsixel ripgrep vscodium ffmpegthumbnailer foot xfce.thunar python3 wine renpy tor-browser transmission_4-gtk
+    chafa tmux unstable-pkgs.ani-cli cinny-desktop libsixel ripgrep vscodium ffmpegthumbnailer foot xfce.thunar python3 wine renpy tor-browser transmission_4-gtk
     krita gimp git nodejs weechat nicotine-plus fastfetch ffmpeg obs-studio btop wl-clipboard xfce.mousepad
     jdk25 ghc ncmpcpp stack obsidian cava cabal-install haskell-language-server wget curl gvfs hyfetch
 
@@ -27,6 +27,7 @@
     pulseaudio      # For 'pactl' volume commands
     capitaine-cursors # Curosor
     bottles
+    unstable-pkgs.antigravity unstable-pkgs.codex #AI Tools
   ];
 
   # Cursor theme setup

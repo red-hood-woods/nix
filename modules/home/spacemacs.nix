@@ -1,13 +1,7 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, inputs, ... }:
 
 {
-  programs.emacs = {
-    enable = true;
-    package = pkgs.emacs-unstable-pgtk; 
-  };
-
-  home.file.".emacs.d" = {
-    source = inputs.spacemacs-repo;
-    recursive = true;
-  };
+  home.packages = [
+    inputs.nixmacs.packages.${pkgs.system}.default
+  ];
 }

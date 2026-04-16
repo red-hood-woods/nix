@@ -14,11 +14,9 @@
           inputs.nixpkgs.follows = "nixpkgs";
     };
     # Emacs
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
-    emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
-    spacemacs-repo = {
-      url = "github:syl20bnr/spacemacs/develop";
-      flake = false;
+    nixmacs = {
+      url = "git+https://codeberg.org/sheep/nixmacs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     # Home Manger
     home-manager = {
@@ -30,20 +28,19 @@
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, avim, ... } @ inputs:
   let
     system = "x86_64-linux";
-    overlays = [
-    inputs.emacs-overlay.overlays.default 
-    ];
     pkgs = nixpkgs.legacyPackages.${system};
-    unstable-pkgs = nixpkgs-unstable.legacyPackages.${system};
+    unstable-pkgs = import nixpkgs-unstable {
+    inherit system;
+    config.allowUnfree = true;
+    };
     mkHost = hostname: nixpkgs.lib.nixosSystem {
       inherit system;
-      specialArgs = { 
+      specialArgs = {
       inherit inputs unstable-pkgs;
       };
       modules = [
         ./hosts/${hostname}/hardware-configuration.nix
         ./hosts/${hostname}/configuration.nix
-        { nixpkgs.overlays = overlays; }
         inputs.nix-flatpak.nixosModules.nix-flatpak
         home-manager.nixosModules.home-manager
         {
