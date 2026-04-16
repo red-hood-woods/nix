@@ -15,13 +15,13 @@
     # Misc
     vivaldi w3m tor-browser # Browsers
     xfce.mousepad xfce.thunar # Xfce Carryover
-    foot kitty # Terminal Emulator's
+    foot # Terminal Emulator's
     fastfetch hyfetch # Fetch
     yazi tmux chafa libsixel ripgrep btop # Terminal things
     transmission_4-gtk nicotine-plus # Legal things
     vscodium stack obsidian # Idk i don rembere
     krita gimp # Photo editing
-    cinny-desktop gomuks weechat # Non Discord chat
+    cinny-desktop iamb weechat # Non Discord chat
 
     # Pgm
     jdk25
