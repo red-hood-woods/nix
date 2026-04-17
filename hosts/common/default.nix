@@ -82,8 +82,18 @@
     }];
     packages = [
       "app.twintaillauncher.ttl"
+      "com.tutanota.Tutanota"
     ];
   };
+
+  # OpenSSH
+  services.openssh = {
+  enable = true;
+  settings = {
+    PasswordAuthentication = true;
+    PermitRootLogin = "no";
+  };
+};
 
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

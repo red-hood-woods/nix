@@ -8,6 +8,7 @@
     }];
     packages = [
       "app.twintaillauncher.ttl"
+      "com.tutanota.Tutanota"
     ];
   };
 }

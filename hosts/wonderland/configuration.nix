@@ -17,7 +17,7 @@
       libvdpau-va-gl
       intel-compute-runtime
   ];
-  # Locale / Encoding - critical for old Python/Ren'Py apps
+  # Locale / Encoding
   i18n = {
     defaultLocale = "en_US.UTF-8";
     supportedLocales = [
