@@ -8,12 +8,14 @@
     "${inputs.self}/modules/home/nixvim.nix"
     "${inputs.self}/modules/home/spacemacs.nix"
   ];
+
   home.username = "alice";
   home.homeDirectory = "/home/alice";
 
   home.packages = with pkgs; [
     # Misc
     vivaldi pkgs.palemoon-bin w3m tor-browser # Browsers
+    unstable-pkgs.tutanota-desktop keepassxc # Mail
     xfce.mousepad xfce.thunar # Xfce Carryover
     foot # Terminal Emulator's
     fastfetch hyfetch # Fetch
@@ -61,6 +63,7 @@
     git # Its git
     unzip p7zip     # The zippers
     wget curl # -.-
+    polkit_gnome
 
     # Unstable
     unstable-pkgs.ani-cli

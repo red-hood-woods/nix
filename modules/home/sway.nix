@@ -32,6 +32,10 @@
       };
       # Autostart applications
       startup = [
+        { command = "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway"; }
+        { command = "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"; }
+        { command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"; }
+        { command = "keepassxc --minimized"; }
         { command = "mako"; always = false; }
       ];
 

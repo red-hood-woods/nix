@@ -72,6 +72,9 @@
   programs.steam.enable = true;
   services.gvfs.enable = true;
   services.udisks2.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.login.enableGnomeKeyring = true;
+
 
   # Flatpak - common part
   services.flatpak = {
@@ -82,7 +85,6 @@
     }];
     packages = [
       "app.twintaillauncher.ttl"
-      "com.tutanota.Tutanota"
     ];
   };
 
