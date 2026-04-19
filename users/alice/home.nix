@@ -7,6 +7,7 @@
     "${inputs.self}/modules/home/fetch.nix"
     "${inputs.self}/modules/home/nixvim.nix"
     "${inputs.self}/modules/home/spacemacs.nix"
+    "${inputs.self}/modules/home/floorp.nix"
   ];
 
   home.username = "alice";
@@ -14,7 +15,7 @@
 
   home.packages = with pkgs; [
     # Misc
-    vivaldi pkgs.palemoon-bin w3m tor-browser # Browsers
+    pkgs.palemoon-bin w3m tor-browser # Browsers
     unstable-pkgs.tutanota-desktop keepassxc # Mail
     xfce.mousepad xfce.thunar # Xfce Carryover
     foot # Terminal Emulator's
@@ -48,6 +49,9 @@
     discord
     obs-studio
     prismlauncher
+    openttd
+    openrct2
+    lincity-ng
 
     # Utilities
     swaybg          # Wallpaper
