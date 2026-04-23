@@ -42,7 +42,7 @@
     ];
   };
 
-  # Fonts (perfect for common)
+  # Fonts 
   fonts.packages = with pkgs; [
     poppins
     courier-prime
@@ -53,8 +53,10 @@
     noto-fonts
     nerd-fonts.jetbrains-mono
     source-code-pro
+    (runCommand "cartograph-cf" {} ''
+      install -m444 -D ${./../../assets/font/cartograph}/*.otf -t $out/share/fonts/opentype
+    '')
   ];
-
   # Desktop / Wayland stuff
   xdg.portal = {
     enable = true;
@@ -76,16 +78,13 @@
   security.pam.services.login.enableGnomeKeyring = true;
 
 
-  # Flatpak - common part
+  # Flatpak - system service (packages managed per-user in Home Manager)
   services.flatpak = {
     enable = true;
     remotes = lib.mkOptionDefault [{
       name = "flathub";
       location = "https://dl.flathub.org/repo/flathub.flatpakrepo";
     }];
-    packages = [
-      "app.twintaillauncher.ttl"
-    ];
   };
 
   # OpenSSH
@@ -106,6 +105,11 @@
   # User account (base)
   users.users.alice = {
     isNormalUser = true;
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" "input" ];
+  };
+  users.users.lewis = {
+    isNormalUser = true;
+    initialPassword = "lewis";
     extraGroups = [ "networkmanager" "wheel" "video" "audio" "input" ];
   };
 

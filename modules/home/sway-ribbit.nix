@@ -19,6 +19,9 @@
       output = {
         "HDMI-A-1" = { pos = "0 0"; };
         "eDP-1" = { pos = "1680 0"; };
+        "*" = {
+          bg = "/home/alice/.bg.jpg fill";
+        };
       };
 
       # Touchscreen Input
@@ -34,7 +37,6 @@
         { command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"; }
         { command = "keepassxc --minimized"; }
         { command = "mako"; always = false; }
-        { command = "noctalia-shell"; always = true; }
       ];
 
       # Border styling and Window Rules
@@ -79,9 +81,9 @@
         alt = "Mod1";
       in lib.mkOptionDefault {
         "${modifier}+Return" = "exec foot";
-        "${modifier}+d" = "exec noctalia-shell ipc call launcher toggle";
+        "${modifier}+d" = "exec rofi -show drun";
         "${modifier}+k" = "exec $HOME/.local/bin/wl-kaomoji";
-        "${modifier}+Shift+d" = "exec rofi --show drun";
+        "${modifier}+Shift+d" = "exec rofi -show run";
         "${modifier}+Shift+c" = "reload";
 
         "Print" = "exec grim -g \"$(slurp)\" ~/Pictures/$(date +%Y-%m-%d_%H-%m-%s).png";
@@ -142,20 +144,17 @@
      };
      extraConfig = ''
        blur enable
-       blur_passes 3
-       blur_radius 7
-       blur_xray enable
+       blur_passes 2
+       blur_radius 3
 
        corner_radius 12
-       default_dim_inactive 0.1
+       default_dim_inactive 0.2
        shadows enable
        shadow_blur_radius 20
-       shadow_color #00000055
+       shadow_color #00000077
 
-       layer_effects "mako" blur enable; corner_radius 12; shadows enable
-       layer_effects "rofi" blur enable; corner_radius 12; shadows enable
-       layer_effects "noctalia-shell" blur enable; corner_radius 12; shadows enable
-       layer_effects "swaynag" blur enable; corner_radius 12; shadows enable
-     '';
+       layer_effects "mako" blur enable; corner_radius 10
+       layer_effects "rofi" blur enable; corner_radius 10
+   '' ;
   };
 }

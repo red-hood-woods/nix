@@ -2,6 +2,6 @@
 
 {
   home.packages = [
-    inputs.avim.packages.${pkgs.system}.default
+    inputs.avim.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }

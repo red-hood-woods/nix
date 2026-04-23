@@ -28,9 +28,11 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Noctalia Shell
+    noctalia-shell.url = "github:noctalia-dev/noctalia-shell";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, avim, ... } @ inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, avim, noctalia-shell, ... } @ inputs:
   let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
@@ -52,6 +54,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.alice = import ./users/alice/home.nix;
+          home-manager.users.lewis = import ./users/lewis/home.nix;
           home-manager.extraSpecialArgs = { inherit inputs unstable-pkgs; };
         }
       ];

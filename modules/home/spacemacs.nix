@@ -2,6 +2,6 @@
 
 {
   home.packages = [
-    inputs.nixmacs.packages.${pkgs.system}.default
+    inputs.nixmacs.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }

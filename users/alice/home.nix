@@ -8,6 +8,14 @@
     "${inputs.self}/modules/home/nixvim.nix"
     "${inputs.self}/modules/home/spacemacs.nix"
     "${inputs.self}/modules/home/floorp.nix"
+    "${inputs.self}/modules/home/rofi.nix"
+    "${inputs.self}/modules/home/mako.nix"
+    "${inputs.self}/modules/home/flatpak.nix"
+    "${inputs.self}/modules/home/noctalia.nix"
+  ];
+
+  services.flatpak.packages = [
+    "app.twintaillauncher.ttl"
   ];
 
   home.username = "alice";
@@ -17,14 +25,16 @@
     # Misc
     pkgs.palemoon-bin w3m tor-browser # Browsers
     unstable-pkgs.tutanota-desktop keepassxc # Mail
-    xfce.mousepad xfce.thunar # Xfce Carryover
+    xfce.mousepad nemo # Acker
     foot # Terminal Emulator's
     fastfetch hyfetch # Fetch
-    yazi tmux chafa libsixel ripgrep btop # Terminal things
+    chafa libsixel ripgrep btop # Terminal things
     transmission_4-gtk nicotine-plus # Legal things
     vscodium stack obsidian # Idk i don rembere
     krita gimp # Photo editing
     cinny-desktop iamb weechat # Non Discord chat
+    blockbench
+
 
     # Pgm
     jdk25
@@ -51,12 +61,15 @@
     prismlauncher
     openttd
     openrct2
-    lincity-ng
+    pkgs.bolt-launcher
+
+    # Slightly More anoyoing
+    balatro
 
     # Utilities
     swaybg          # Wallpaper
-    libnotify mako  # Notifications
-    rofi            # App launcher
+    libnotify # Notifications handled by Mako module
+    # App launcher handled by HM Programs
     grim slurp      # Screenshots
     swaylock        # Lockscreen
     brightnessctl   # Brightness keys
@@ -74,10 +87,23 @@
     unstable-pkgs.antigravity #AI Tool
   ];
 
-  # Cursor theme setup
+
+  # GTK & Cursor theme setup
+  gtk = {
+    enable = true;
+    theme = {
+      name = "rose-pine";
+      package = pkgs.rose-pine-gtk-theme;
+    };
+    iconTheme = {
+      name = "rose-pine";
+      package = pkgs.rose-pine-icon-theme;
+    };
+  };
+
   home.pointerCursor = {
-    name = "capitaine-cursors";
-    package = pkgs.capitaine-cursors;
+    name = "BreezeX-RosePine-Linux";
+    package = pkgs.rose-pine-cursor;
     size = 24;
     gtk.enable = true;
   };
@@ -85,6 +111,23 @@
   services.mpd = {
     enable = true;
     musicDirectory = "/home/alice/Music";
+  };
+
+  # Add HM managed programs
+  programs.tmux = {
+    enable = true;
+    plugins = with pkgs.tmuxPlugins; [
+      rose-pine
+    ];
+  };
+
+  programs.yazi = {
+    enable = true;
+    theme = {
+      flavor = {
+        use = "rose-pine";
+      };
+    };
   };
 
   home.stateVersion = "25.11";
