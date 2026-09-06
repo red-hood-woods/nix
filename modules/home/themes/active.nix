@@ -7,6 +7,7 @@ in {
     type = lib.types.nullOr (lib.types.enum [
       "nagare"
       "manguru"
+      "karugaru"
       "noctaniri"
       "redpine"
       "rosepine-dark"
@@ -16,6 +17,7 @@ in {
     default =
       if t.nagare.enable then "nagare"
       else if t.manguru.enable then "manguru"
+      else if t.karugaru.enable then "karugaru"
       else if t.noctaniri.enable then "noctaniri"
       else if t.redpine.enable then "redpine"
       else if t.rosepine-dark.enable then "rosepine-dark"

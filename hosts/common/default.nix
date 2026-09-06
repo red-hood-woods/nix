@@ -8,6 +8,7 @@
     "${inputs.self}/modules/nixos/noctalia-greeter.nix"
     "${inputs.self}/modules/nixos/plymouth.nix"
     "${inputs.self}/modules/nixos/mango-session.nix"
+    "${inputs.self}/modules/nixos/tuigreet-greeter.nix"
   ];
 
   options = {

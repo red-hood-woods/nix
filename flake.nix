@@ -78,6 +78,11 @@
       url = "github:InioX/matugen";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    mangobar = {
+      url = "github:mangowm/mangobar";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, noctalia-shell, sops-nix, spicetify-nix, ... } @ inputs:
@@ -114,6 +119,7 @@
               inputs.zen-browser.homeModules.twilight
               inputs.spicetify-nix.homeManagerModules.default
               inputs.matugen.nixosModules.default
+              inputs.mangobar.homeManagerModules.default
               (import ./modules/home)
             ];
           }

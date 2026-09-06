@@ -1,0 +1,12 @@
+{
+  "height": 32,
+  "layer": "top",
+  "modules-left": ["tags", "layout", "window"],
+  "modules-center": ["clock"],
+  "modules-right": ["pulseaudio", "network", "battery", "tray"],
+  "tags": { "on-click": "activate", "on-click-right": "toggle" },
+  "layout": { "format": "{}" },
+  "window": { "format": "{}" },
+  "clock": { "format": "%H:%M" },
+  "battery": { "format": "{capacity}%" }
+}
